@@ -63,7 +63,7 @@ Rails.application.configure do
   port:                 25,
   domain:               'https://commandsapp.herokuapp.com/',
   user_name:            'songthamtung@gmail.com',
-  password:             ENV['GMAIL_KEY'],
+  password:             <%= ENV['RAILS_DB_PWD'] %>,<>
   authentication:       'plain',
   enable_starttls_auto: true  }
   # Ignore bad email addresses and do not raise email delivery errors.
