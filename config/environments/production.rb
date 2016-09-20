@@ -82,7 +82,7 @@ Rails.application.configure do
 
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
-  # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
+  # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name'
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
@@ -92,4 +92,18 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # action_mailer
+  config.action_mailer.default_url_options = { host: 'https://commandsapp.herokuapp.com'}
+  config.action_mailer.delivery_method = :smtp
+
+  ActionMailer::Base.smtp_settings = {
+    :address  => 'smtp.gmail.com',
+    :port     => '587',
+    :authentication => :plain,
+    :user_name  => ENV['GMAIL_USERNAME'],
+    :password   => ENV['GMAIL_PASSWORD'],
+    :domain   => 'herokuapp.com',
+    :enable_starttls_auto => true
+  }
 end

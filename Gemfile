@@ -9,6 +9,8 @@ group :production do
   gem 'rails_12factor', '0.0.2'
 end
 
+gem 'sendgrid-ruby'
+
 gem 'mail_form'
 gem 'simple_form'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
